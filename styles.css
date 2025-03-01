@@ -1,0 +1,239 @@
+/* Professional, minimal, and animated style for a cyber security website */
+
+/* Import Google Fonts for thin, sleek text */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000; /* Black background */
+  color: #fff; /* White text */
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+/* Intro Screen */
+#intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.intro-content {
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.intro-content h1 {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.loader {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+/* Animated Background Lines */
+.animated-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1; /* Send the lines to the back */
+}
+
+.line {
+  position: absolute;
+  height: 2px;
+  background: #fff;
+  opacity: 0.6;
+  animation: moveLine 5s linear infinite;
+}
+
+.line1 {
+  top: 20%;
+  width: 50%;
+  left: -50%;
+  animation-delay: 0s;
+}
+
+.line2 {
+  top: 50%;
+  width: 70%;
+  left: -70%;
+  animation-delay: 2s;
+}
+
+.line3 {
+  top: 80%;
+  width: 60%;
+  left: -60%;
+  animation-delay: 4s;
+}
+
+/* Main Content */
+#main-content {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  padding: 20px;
+  z-index: 1;
+}
+
+/* Neon border animation for container */
+#main-content::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #fff;
+  opacity: 0.5;
+  pointer-events: none;
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* Header and text styling */
+header h1.neon-text {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 10px;
+  position: relative;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff;
+  animation: pulse 2s infinite;
+}
+
+header h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.thin-text {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* Animated Section Text */
+.animated-section p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+}
+
+.animated-section p:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.animated-section p:nth-child(2) {
+  animation-delay: 1s;
+}
+
+/* Keyframes */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff;
+  }
+  50% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 50px #0ff;
+  }
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff;
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff;
+  }
+  50% {
+    box-shadow: 0 0 20px #fff, 0 0 30px #fff;
+  }
+}
+
+@keyframes moveLine {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(200%); }
+}
+
+/* Fade in main content */
+.show {
+  display: block;
+  animation: fadeInContent 1s forwards;
+}
+
+@keyframes fadeInContent {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
