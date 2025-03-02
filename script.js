@@ -1,4 +1,3 @@
-// Professional JS to control our animated intro and smooth transitions, Alex!
 document.addEventListener("DOMContentLoaded", function() {
   // Simulate a video-like boot sequence for 3 seconds
   setTimeout(function() {
